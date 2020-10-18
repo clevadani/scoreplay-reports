@@ -101,7 +101,7 @@ const ChartsPage = () => {
 		<Container>
 			<Row>
 				<Col>
-					<Form inline>
+					<Form inline className="mt-3">
 						<Form.Group>
 							<Form.Label htmlFor="startDate">Start Date:</Form.Label>
 							<Form.Control

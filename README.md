@@ -3,7 +3,7 @@
 Scoreplay reports is a single page application that displays some key scoreplay KPIs.
 
 ## Demo
-Interact with the application [here](#). You can change the dates and facility IDs to see key performance indicators.
+Interact with the application [here](http://clevadani.github.io/scoreplay-reports). You can change the dates and facility IDs to see key performance indicators.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
