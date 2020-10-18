@@ -6,6 +6,7 @@ import Event from "../../charts/Event"
 import PercentageChange from "../../charts/PercentageChange"
 import Revenue from "../../charts/Revenue"
 import Yield from "../../charts/Yield"
+const PAGE_UPDATE_INTERVAL = 1000 * 60 * 5; // 5 minutes
 
 const ChartsPage = () => {
 
@@ -18,6 +19,7 @@ const ChartsPage = () => {
 	const [revenue2, handleRevenue2] = useState({});
 	const [previousRangeStartDate, handlePreviousRangeStartDate] = useState();
 	const [userId] = useState(0);
+	const [loading, updateLoading] = useState(true);
 
 	async function fetchData() {
 
@@ -44,16 +46,12 @@ const ChartsPage = () => {
 			}
 		};
 
-		console.log('body', body)
-		console.log('body2', body2)
 		const apiCall = await axios.post('https://erp.sofive.com/report/sales', body, options);
 		const apiCall2 = await axios.post('https://erp.sofive.com/report/sales', body2, options);
 		
-		console.log('apiCall', apiCall)
 		const data = apiCall.data;
 		const data2 = apiCall2.data;
 
-		// console.log('data', data)
 
     const productDict = {};
     const productDict2 = {};
@@ -84,12 +82,13 @@ const ChartsPage = () => {
 		handleRevenue(revenueDict);
 		handleFilteredData2(productDict2);
 		handleRevenue2(revenueDict2);
+		updateLoading(false);
 	}
 
 
   useEffect(() => {
 		fetchData();
-		setInterval(function(){ console.log("Hello"); }, 10000);
+		setInterval(function(){ fetchData() }, PAGE_UPDATE_INTERVAL);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [userId]);
 	
@@ -142,10 +141,15 @@ const ChartsPage = () => {
 					</Form>
 				</Col>
 			</Row>
-			{Object.keys(filteredData).length && <Event data={filteredData} />}
-			{Object.keys(filteredData).length && <PercentageChange data={filteredData} data2={filteredData2} rangeStart={previousRangeStartDate} startDate={startDate} endDate={endDate} />}
-			{Object.keys(filteredData).length && <Yield data={filteredData} data2={filteredData2} rangeStart={previousRangeStartDate} startDate={startDate} endDate={endDate} revenue={revenue} revenue2={revenue2}/>}
-			{Object.keys(revenue).length && <Revenue data={revenue} />}
+			{
+				!loading && 
+				<div>
+					{Object.keys(filteredData).length && <Event data={filteredData} />}
+					{Object.keys(filteredData).length && <PercentageChange data={filteredData} data2={filteredData2} rangeStart={previousRangeStartDate} startDate={startDate} endDate={endDate} />}
+					{Object.keys(filteredData).length && <Yield data={filteredData} data2={filteredData2} rangeStart={previousRangeStartDate} startDate={startDate} endDate={endDate} revenue={revenue} revenue2={revenue2}/>}
+					{Object.keys(revenue).length && <Revenue data={revenue} />}
+				</div>
+			}
 		</Container>
 	);
 }

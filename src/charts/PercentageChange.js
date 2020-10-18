@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { HorizontalBar } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import { generateColors } from "../utils";
 
@@ -24,50 +24,25 @@ const PercentageChange = ({data, data2, startDate, endDate, rangeStart}) => {
     })
     const dataArray = Object.values(productPercentages);
 
-    const dataBar = {
-      labels: Object.keys(productPercentages),
-      datasets: [
-        {
-          label: "% change with previous date range",
-          data: dataArray,
-          backgroundColor: generateColors(dataArray.length, 0.4),
-          borderWidth: 2,
-          borderColor: generateColors(dataArray.length, 1)
-        }
-      ]
-    }
-    const barChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        xAxes: [
+    const dataHorizontal = {
+        labels: Object.keys(productPercentages),
+        datasets: [
           {
-            barPercentage: 1,
-            gridLines: {
-              display: true,
-              color: "rgba(0, 0, 0, 0.1)"
-            }
-          }
-        ],
-        yAxes: [
-          {
-            gridLines: {
-              display: true,
-              color: "rgba(0, 0, 0, 0.1)"
-            },
-            ticks: {
-              beginAtZero: true
-            }
+            label: '% change with previous date range',
+            data: dataArray,
+            fill: false,
+            backgroundColor: generateColors(dataArray.length, 0.4),
+            borderColor: generateColors(dataArray.length, 1),
+            borderWidth: 1
           }
         ]
       }
-    }
 
     return (
       <MDBContainer>
         <h3 className="mt-5">Percentage change with previous date range</h3>
         <p>{rangeStart.split(" ")[0]} - {startDate} and {startDate} - {endDate}</p>
-        <Bar data={dataBar} options={barChartOptions} />
+        <HorizontalBar data={dataHorizontal} options={{ responsive: true }} />
       </MDBContainer>
     );
 }
