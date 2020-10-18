@@ -1,4 +1,4 @@
-#Scoreplay Reports
+# Scoreplay Reports
 
 Scoreplay reports is a single page application that displays some key scoreplay KPIs.
 
