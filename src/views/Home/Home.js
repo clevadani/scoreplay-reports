@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Form, Button, Container } from 'react-bootstrap';
+import { Row, Col, Form, Button, Container, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 import moment from 'moment';
 import Event from "../../charts/Event"
@@ -141,6 +141,9 @@ const ChartsPage = () => {
 					</Form>
 				</Col>
 			</Row>
+			{
+				loading && <Spinner animation="border" className="mt-5"/>
+			}
 			{
 				!loading && 
 				<div>
