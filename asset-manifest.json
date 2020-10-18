@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/scoreplay-reports/static/css/main.5f361e03.chunk.css",
+    "main.js": "/scoreplay-reports/static/js/main.b08085c1.chunk.js",
+    "main.js.map": "/scoreplay-reports/static/js/main.b08085c1.chunk.js.map",
+    "runtime-main.js": "/scoreplay-reports/static/js/runtime-main.3cad38f5.js",
+    "runtime-main.js.map": "/scoreplay-reports/static/js/runtime-main.3cad38f5.js.map",
+    "static/css/2.1afe660f.chunk.css": "/scoreplay-reports/static/css/2.1afe660f.chunk.css",
+    "static/js/2.173804f6.chunk.js": "/scoreplay-reports/static/js/2.173804f6.chunk.js",
+    "static/js/2.173804f6.chunk.js.map": "/scoreplay-reports/static/js/2.173804f6.chunk.js.map",
+    "index.html": "/scoreplay-reports/index.html",
+    "precache-manifest.8f1b58f2d29139c35090819a27ce63f1.js": "/scoreplay-reports/precache-manifest.8f1b58f2d29139c35090819a27ce63f1.js",
+    "service-worker.js": "/scoreplay-reports/service-worker.js",
+    "static/css/2.1afe660f.chunk.css.map": "/scoreplay-reports/static/css/2.1afe660f.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/scoreplay-reports/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.173804f6.chunk.js.LICENSE.txt": "/scoreplay-reports/static/js/2.173804f6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3cad38f5.js",
+    "static/css/2.1afe660f.chunk.css",
+    "static/js/2.173804f6.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.b08085c1.chunk.js"
+  ]
+}
